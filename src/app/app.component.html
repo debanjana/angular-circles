@@ -1,0 +1,12 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<div>
+  <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
+  <div class="circleContainer">
+    <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
+      <span (click) = "circleClicked($event)" *ngFor ="let ele of selected" class="dot" [ngStyle]= "expression" ></span>
+  </div>
+</div>

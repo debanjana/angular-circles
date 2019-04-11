@@ -1,0 +1,13 @@
+p {
+  font-family: Lato;
+}
+
+.dot {
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  
+}
+.circleContainer {
+ flex-wrap: wrap;
+}
