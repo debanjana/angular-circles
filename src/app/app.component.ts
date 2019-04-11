@@ -19,16 +19,16 @@ export class AppComponent  {
 
   ngOnInit(){
       this.selected.length = 4;
-    // this.populateCircles();
+     this.populateCircles();
 
   }
 
   populateCircles(){
     for (let count=0 ; count<this.selected.length; count++){
-      this.selected.push({
+      this.selected[count] = {
         'id': count,
         'isSelected': false
-      })
+      };
     }
   }
 
