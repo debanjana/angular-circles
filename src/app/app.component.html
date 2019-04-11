@@ -7,6 +7,6 @@
   <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
   <div class="circleContainer">
     <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
-      <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngStyle]= "expression" ></span>
+      <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "expression" ></span>
   </div>
 </div>
