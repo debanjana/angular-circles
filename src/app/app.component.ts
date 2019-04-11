@@ -33,7 +33,11 @@ export class AppComponent  {
   }
 
 circleClicked (element){
-  console.log(element);
+  // clear all selections
+  this.populateCircles();
+  // select one
+  this.selected[element.id].isSelected = true;
+  
 }
 
 }
