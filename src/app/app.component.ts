@@ -19,7 +19,7 @@ export class AppComponent  {
 
   ngOnInit(){
       this.selected.length = 4;
-    this.populateCircles();
+    // this.populateCircles();
 
   }
 
