@@ -1,7 +1,7 @@
 <div class="main-container">
-<table>
-<tr>
- <td><label>COUNT </label></td> <td><input type="number" min="0" [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required></td>
+	<table>
+		<tr>
+			<td><label>COUNT </label></td> <td><input type="number" min="0" [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required></td>
  </tr>
  <tr>
   <td><label>SELECTED </label></td> <td><input type="number" min="0" [(ngModel)]="noSelected" (keyup)="inputChanged()" required></td>
@@ -11,9 +11,8 @@
   </tr>
  </table>
 <div>
-  <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
+
   <div class="circleContainer">
-    <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
       <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "getExpression()" ></span>
   </div>
 </div>
