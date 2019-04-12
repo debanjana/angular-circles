@@ -1,19 +1,32 @@
-p {
-  font-family: Lato;
-}
+
 
 .dot {
-  background-color: #bbb;
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
+  margin-left: 14px;
   
 }
 .dot-selected {
-  background-color:red;
+  background-color:orange;
   border-radius: 50%;
   display: inline-block;
+  margin-left: 14px;
   
 }
 .circleContainer {
  flex-wrap: wrap;
+ background-color: black;
+ width: 25rem;
+ height:25rem;
+ margin-top: 2rem;
+border: 1px solid;
+padding: 10px;
+-webkit-box-shadow: 0 0 15px #454545;
+        box-shadow: 0 0 15px #454545;
+
+}
+
+.main-container{
+  //margin: 40px 20px 40px 40px;
 }

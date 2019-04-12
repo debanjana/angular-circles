@@ -1,16 +1,20 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
-
-  <input [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required>
-  <input [(ngModel)]="noSelected"  (keyup)="inputChanged()" required>
-  <input [(ngModel)]="radiusValue" required>
-
+<div class="main-container">
+<table>
+<tr>
+ <td><label>COUNT </label></td> <td><input  [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required></td>
+ </tr>
+ <tr>
+  <td><label>SELECTED </label></td> <td><input  [(ngModel)]="noSelected" (keyup)="inputChanged()" required></td>
+  </tr>
+  <tr>
+  <td><label>RADIUS </label></td> <td><input  [(ngModel)]="radiusValue" (keyup)="inputChanged()" required></td>
+  </tr>
+ </table>
 <div>
   <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
   <div class="circleContainer">
     <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
       <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "getExpression()" ></span>
   </div>
+</div>
 </div>
