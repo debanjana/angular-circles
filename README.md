@@ -9,7 +9,7 @@
 
 * Radius – The radius of a dot.
 
-# Functionality to acheive 
+# Functionality
 * Adjust number of dots  
 * Highlight the ‘selected’ dot
 * Adjust dot size
@@ -24,6 +24,7 @@
  * Input to be only number 
  * Input to be greater than 0 
  * When number of dots are lesser than selected value , change the selected value to min number of dots.
+ * Changes made only on ENTER key press
  
  
 
