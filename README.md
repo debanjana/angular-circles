@@ -1,6 +1,6 @@
-# Generate and Select Circles with Count , Radius and Selected Value.
+# Overview 
 
- A simple interactive UI.
+ A simple interactive UI to generate and select dots with Count , Radius and Selected Value.
  The UI just consists of a rectangle with dots inside of it. There are three inputs controlling the presentation of the dots:
 
 * Count – The number of dots to display
