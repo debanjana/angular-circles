@@ -23,7 +23,8 @@
 border: 1px solid;
 padding: 10px;
 -webkit-box-shadow: 0 0 15px #454545;
-        box-shadow: 0 0 15px #454545;
+box-shadow: 0 0 15px #454545;
+overflow: auto;
 
 }
 
