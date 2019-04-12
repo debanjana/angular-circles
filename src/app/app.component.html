@@ -3,10 +3,14 @@
   Start editing to see some magic happen :)
 </p>
 
+  <input [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required>
+  <input [(ngModel)]="noSelected"  (keyup)="inputChanged()" required>
+  <input [(ngModel)]="radiusValue" required>
+
 <div>
   <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
   <div class="circleContainer">
     <!-- <canvas id="myCanvas" width="200" height="200" ></canvas> -->
-      <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "expression" ></span>
+      <span (click) = "circleClicked(ele)" *ngFor ="let ele of selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "getExpression()" ></span>
   </div>
 </div>

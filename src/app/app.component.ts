@@ -9,35 +9,54 @@ export class AppComponent  {
   name = 'Angular';
   // @ViewChild ('myCanvas') canvasElement;
   selected = [];
-  radiusValue = "50px";
+  countOfCircle = 4;
+  noSelected = 2;
+  radiusValue = "50";
   // 'height' : 5px ; width = 5px;
 
   // canvas setup
-  expression = {'height' : this.radiusValue , 'width' : this.radiusValue }
+  getExpression(){
+return {'height' : this.radiusValue +'px' , 'width' : this.radiusValue +'px' }
+  }
+  
 
   
 
   ngOnInit(){
-      this.selected.length = 4;
+    //this.selected.length = 4;
      this.populateCircles();
 
   }
 
   populateCircles(){
-    for (let count=0 ; count<this.selected.length; count++){
+    this.selected =[];
+    for (let count=0 ; count<this.countOfCircle; count++){
       this.selected[count] = {
         'id': count,
         'isSelected': false
       };
     }
+    this.selected[this.noSelected].isSelected= true; 
   }
 
 circleClicked (element){
   // clear all selections
+  this.noSelected = element.id;
   this.populateCircles();
   // select one
-  this.selected[element.id].isSelected = true;
+  //this.selected[element.id].isSelected = true;
   
+}
+inputChanged(){
+   console.log(this.noSelected , this.countOfCircle);
+  if(this.countOfCircle <= 0){
+    this.noSelected = this.noSelected;
+  } else if( this.noSelected >= this.countOfCircle){
+     console.log('yes');
+    this.noSelected = this.countOfCircle - 1;
+  }
+
+this.populateCircles(); 
 }
 
 }
