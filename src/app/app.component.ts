@@ -52,10 +52,12 @@ export class AppComponent {
   }
 
   // method to handle input changes
-  inputChanged() {
+  inputChanged(event) {
     // VALIDATION
     // if number of circle is 0 the selected value with also be zero 
     // the number of circle selected should never be greater than the total number of circles 
+    // only if ENTER key pressed
+    if(event.keyCode === 13){
     if (this.countOfCircle <= 0) {
       this.noSelected = this.noSelected;
     } else if (this.noSelected >= this.countOfCircle) {
@@ -65,6 +67,6 @@ export class AppComponent {
     // redraw the circles with updated value
     this.populateCircles();
   }
-
+  }
 }
 

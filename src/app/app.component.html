@@ -1,13 +1,13 @@
 <div class="main-container">
 	<table>
 		<tr>
-			<td><label>COUNT </label></td> <td><input type="number" min="0" [(ngModel)]="countOfCircle" (keyup)="inputChanged()" required></td>
+			<td><label>COUNT </label></td> <td><input type="number" min="0" [(ngModel)]="countOfCircle" (keyup)="inputChanged($event)" required></td>
  </tr>
  <tr>
-  <td><label>SELECTED </label></td> <td><input type="number" min="0" [(ngModel)]="noSelected" (keyup)="inputChanged()" required></td>
+  <td><label>SELECTED </label></td> <td><input type="number" min="0" [(ngModel)]="noSelected" (keyup)="inputChanged($event)" required></td>
   </tr>
   <tr>
-  <td><label>RADIUS </label></td> <td><input  type="number" min="0" [(ngModel)]="radiusValue" (keyup)="inputChanged()" required></td>
+  <td><label>RADIUS </label></td> <td><input  type="number" min="0" [(ngModel)]="radiusValue" (keyup)="inputChanged($event)" required></td>
   </tr>
  </table>
 <div>

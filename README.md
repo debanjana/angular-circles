@@ -16,9 +16,19 @@
 * Select a dot
 * Select a selected dot
 
+# Demo
+The following demonstration provides an overview of the application : Click the image below Alt text
+[![Watch the video](/dots-demo-image.png)](https://youtu.be/hIFSRXU_X18)
+
 
 # Technology 
  Angular 7 with HTML CSS TS 
+ 
+ # Running Code
+* To Preview the application open the link : https://angular-ktzw6j.stackblitz.io in Mozilla. 
+
+* Note : Chrome does not support Stackblitz preview ( https://github.com/stackblitz/core/issues/162)
+ 
  
  # Validation checks
  * Input to be only number 
@@ -27,5 +37,13 @@
  * Changes made only on ENTER key press
  
  
+ # Running tests
+ 
+ `app.component.spec.ts` contains a basic spec. 
+ 
+ The file has been commented out as stackblitz does not support test framework.
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ktzw6j)
+
+# Alternate approach
+Alternate approach would be to use HTML canvas without leveraging the power of Angular.
+
