@@ -42,5 +42,10 @@ export class AppComponent {
       this.dotsService.populateCircles();
     }
   }
+
+  // dotClicked 
+  dotClicked(element){
+    this.dotsService.dotClicked(element);
+  }
 }
 

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { DotsService } from './dots.service';
+import { Dots } from './dots';
 
 @Component({
   selector: 'app-dots',
@@ -7,11 +8,18 @@ import { DotsService } from './dots.service';
   styleUrls: ['./dots.component.css']
 })
 export class DotsComponent {
-  @Input() name: string;
+  dots: Array<Dots>[];
+  colorExpression : string;
+  @Output() dotClicked: EventEmitter<Dots> = new EventEmitter();
 
   constructor(private dotsService: DotsService) { }
 
   ngOnInit() {
+    const dotsObservable = this.dotsService.populateCircles().subscribe((dotsArray : Dots[])=> {
+      this.dots = dotsArray;
+      console.log('dots',this.dots);
+    }
+    );
   }
 
   // method to bind the circle style with dynamic radius.
@@ -21,16 +29,8 @@ export class DotsComponent {
 
   // method called when cicle is clicked
   circleClicked(element) {
-    // if same circle is selected increase the radius value
-    if (this.dotsService.noSelected === element.id) {
-      this.dotsService.radiusValue++;
-    } else {
-      this.dotsService.noSelected = element.id;
-    }
-
-    // clear all selections
-    this.dotsService.populateCircles();
-
+    this.dotClicked.emit({ element});
   }
 
 }
+

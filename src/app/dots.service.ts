@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Dots } from './dots';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DotsService {
-  selected = [];
+  selected: Array<Dots>[];
   countOfCircle = 4;
   noSelected = 2;
   radiusValue = 50;
@@ -12,7 +14,7 @@ export class DotsService {
   constructor() { }
 
   // update dot parameters
-  updateDotsParams(countOfCircle , noSelected , radiusValue ){
+  updateDotsParams(countOfCircle, noSelected, radiusValue) {
     this.countOfCircle = countOfCircle;
     this.noSelected = noSelected;
     this.radiusValue = radiusValue;
@@ -20,14 +22,44 @@ export class DotsService {
   }
 
   // method to clear rectangel and redar circles with new value.
-  populateCircles() {
+  populateCircles(): Observable<any> {
     this.selected = [];
     for (let count = 0; count < this.countOfCircle; count++) {
-      this.selected[count] = {
-        'id': count,
-        'isSelected': false
-      };
+      if (count === this.noSelected) {
+        this.selected.push(new Dots(count, true));
+      } else {
+        this.selected.push(new Dots(count, false));
+      }
     }
-    this.selected[this.noSelected].isSelected = true;
+    const dotsObservable = new Observable(observer => {
+
+      observer.next(this.selected);
+
+    });
+    console.log(this.selected);
+    return dotsObservable;
+  }
+  
+  // // update color change expression
+  // updateColorChange() : Observable<any>{
+  //     const colorChange = new Observable(observer => {
+
+  //     observer.next("'height': this.radiusValue + 'px', 'width': this.radiusValue + 'px'");
+
+  //   });
+  //    return colorChange;
+  // }
+
+  // dotClicked 
+  dotClicked(element) {
+    // if same circle is selected increase the radius value
+    if (this.noSelected === element.element) {
+      this.radiusValue++;
+    } else {
+      this.noSelected = element.element;
+    }
+
+    // clear all selections
+    this.populateCircles();
   }
 }
