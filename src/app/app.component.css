@@ -1,33 +1,4 @@
 
-
-.dot {
-  background-color: white;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 14px;
-  
-}
-.dot-selected {
-  background-color:orange;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 14px;
-  
-}
-.circleContainer {
- flex-wrap: wrap;
- background-color: black;
- width: 25rem;
- height:25rem;
- margin-top: 2rem;
-border: 1px solid white;
-padding: 10px;
--webkit-box-shadow: 0 0 15px #454545;
-box-shadow: 0 0 15px #454545;
-overflow: auto;
-
-}
-
 .main-container{
   margin-left : 25%;
   margin-top: 10%;

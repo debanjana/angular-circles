@@ -1,0 +1,6 @@
+<div class="main-container">
+  <div class="circleContainer">
+      <span (click) = "circleClicked(ele)" *ngFor ="let ele of dotsService.selected" class="dot" [ngClass]="{'dot-selected': ele.isSelected===true}" [ngStyle]= "getExpression()" >
+      </span>
+  </div>
+  </div>
