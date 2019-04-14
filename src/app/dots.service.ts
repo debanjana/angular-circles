@@ -11,6 +11,14 @@ export class DotsService {
 
   constructor() { }
 
+  // update dot parameters
+  updateDotsParams(countOfCircle , noSelected , radiusValue ){
+    this.countOfCircle = countOfCircle;
+    this.noSelected = noSelected;
+    this.radiusValue = radiusValue;
+
+  }
+
   // method to clear rectangel and redar circles with new value.
   populateCircles() {
     this.selected = [];
