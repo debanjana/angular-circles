@@ -24,7 +24,7 @@
 //   });
 
 //  it('should decrease the  value of selected dot', () => {
-//    component.countOfCircle = 1;
+//    component.numberOfDots = 1;
 //    var event = {'keyCode' : 13};
 //    component.inputChanged(event);
 //   expect(component.noSelected).toEqual(0);
