@@ -1,62 +1,58 @@
 import { Injectable } from '@angular/core';
-import { Dots } from './dots';
-import { Observable } from 'rxjs';
+import { Dot } from './dots';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DotsService {
-  selected: Array<Dots>[];
-  countOfCircle = 4;
-  noSelected = 2;
+  dotsToRedraw: Dot[];
+  numberOfDots = 4;
+  indexOfSelectedDot = 2;
   radiusValue = 50;
+  // subject is  being used to publish new changes to dotsToRedraw
+  private subject = new Subject<any>();
 
   constructor() { }
 
   // update dot parameters
-  updateDotsParams(countOfCircle, noSelected, radiusValue) {
-    this.countOfCircle = countOfCircle;
-    this.noSelected = noSelected;
-    this.radiusValue = radiusValue;
+  updateDotsParams(numberOfDots, indexOfSelectedDot, radius) {
+    this.numberOfDots = numberOfDots;
+    this.indexOfSelectedDot = indexOfSelectedDot;
+    this.radiusValue = radius;
+    // redraw the circles with updated value
+    this.populateCircles();
 
   }
 
-  // method to clear rectangel and redar circles with new value.
-  populateCircles(): Observable<any> {
-    this.selected = [];
-    for (let count = 0; count < this.countOfCircle; count++) {
-      if (count === this.noSelected) {
-        this.selected.push(new Dots(count, true));
+  // method to clear rectangle and redraw circles with new value.
+  populateCircles() {
+    this.dotsToRedraw = [];
+    for (let count = 0; count < this.numberOfDots; count++) {
+      if (count === this.indexOfSelectedDot) {
+        this.dotsToRedraw.push(new Dot(count, true));
       } else {
-        this.selected.push(new Dots(count, false));
+        this.dotsToRedraw.push(new Dot(count, false));
       }
     }
-    const dotsObservable = new Observable(observer => {
-
-      observer.next(this.selected);
-
-    });
-    console.log(this.selected);
-    return dotsObservable;
+    this.sendCircleMetadata(this.dotsToRedraw);
   }
-  
-  // // update color change expression
-  // updateColorChange() : Observable<any>{
-  //     const colorChange = new Observable(observer => {
 
-  //     observer.next("'height': this.radiusValue + 'px', 'width': this.radiusValue + 'px'");
+  sendCircleMetadata(message: Dot[]) {
+    this.subject.next({ dotMetaData: message });
+  }
 
-  //   });
-  //    return colorChange;
-  // }
+  getCircleMetadata(): Observable<any> {
+    return this.subject.asObservable();
+  }
 
-  // dotClicked 
+  // dotClicked is called when dotClicked event is raised by child component 
   dotClicked(element) {
     // if same circle is selected increase the radius value
-    if (this.noSelected === element.element) {
+    if (this.indexOfSelectedDot === element.IDOfSelectedDot) {
       this.radiusValue++;
     } else {
-      this.noSelected = element.element;
+      this.indexOfSelectedDot = element.IDOfSelectedDot;
     }
 
     // clear all selections

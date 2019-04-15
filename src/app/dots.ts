@@ -1,4 +1,4 @@
-export class Dots {
+export class Dot {
   id : number ;
   isSelected: boolean;
 

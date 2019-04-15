@@ -7,45 +7,40 @@ import { DotsService } from './dots.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  countOfCircle = 4;
-  noSelected = 2;
-  radiusValue = 50;
+  numberOfDots = 4;
+  indexOfSelectedDot = 2;
+  radius = 50;
 
   constructor(private dotsService: DotsService) { }
 
   ngOnInit() {
-    // draw the initail circles
+    // draw the initial circles
     this.dotsService.populateCircles();
-
   }
 
 
-  // method to handle input changes
+  // method to be called when input value changes for count , selected , radius
   inputChanged(event) {
     // only if ENTER key pressed
     if (event.keyCode === 13) {
-
-      // update dot params
-      this.dotsService.updateDotsParams(this.countOfCircle, this.noSelected, this.radiusValue);
-
-
       // VALIDATION
       // if number of circle is 0 the selected value with also be zero 
       // the number of circle selected should never be greater than the total number of circles 
-      if (this.dotsService.countOfCircle <= 0) {
-        this.dotsService.noSelected = this.dotsService.noSelected;
-      } else if (this.dotsService.noSelected >= this.dotsService.countOfCircle) {
-        this.dotsService.noSelected = this.dotsService.countOfCircle - 1;
+      if (this.numberOfDots <= 0) {
+        this.indexOfSelectedDot = this.indexOfSelectedDot;
+      } else if (this.indexOfSelectedDot >= this.numberOfDots) {
+        this.indexOfSelectedDot = this.numberOfDots - 1;
       }
-
-      // redraw the circles with updated value
-      this.dotsService.populateCircles();
+      this.dotsService.updateDotsParams(this.numberOfDots, this.indexOfSelectedDot, this.radius);
     }
   }
 
-  // dotClicked 
-  dotClicked(element){
-    this.dotsService.dotClicked(element);
+
+  // method that would be called when dotClicked event is raised
+  dotClicked(passedValue) {
+    this.radius = passedValue.radius;
+    this.indexOfSelectedDot = passedValue.IDOfSelectedDot;
+    this.dotsService.dotClicked(passedValue);
   }
 }
 
